@@ -9,12 +9,12 @@
  */
 import java.io.File;
 import java.io.FileWriter;
-import java.io.FileReader;
+//import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Properties;
+//import java.util.Properties;
 import java.util.Scanner;
 
 import javax.crypto.Cipher;
