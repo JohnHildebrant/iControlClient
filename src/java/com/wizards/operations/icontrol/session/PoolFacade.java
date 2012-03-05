@@ -5,7 +5,7 @@
 package com.wizards.operations.icontrol.session;
 
 import com.wizards.operations.icontrol.data.Pool;
-import javax.ejb.Singleton;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -13,18 +13,18 @@ import javax.persistence.PersistenceContext;
  *
  * @author hildebj
  */
-@Singleton
+@Stateless
 public class PoolFacade extends AbstractFacade<Pool> {
-    @PersistenceContext(unitName = "iControlClientPU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "iControlClientPU")
+  private EntityManager em;
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+  @Override
+  protected EntityManager getEntityManager() {
+    return em;
+  }
 
-    public PoolFacade() {
-        super(Pool.class);
-    }
-    
+  public PoolFacade() {
+    super(Pool.class);
+  }
+  
 }
