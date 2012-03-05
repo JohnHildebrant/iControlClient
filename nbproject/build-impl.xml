@@ -647,33 +647,32 @@ exists or setup the property manually. For example like this:
         <dirname file="${dist.war}" property="dist.jar.dir"/>
         <mkdir dir="${dist.jar.dir}"/>
         <jar compress="${jar.compress}" jarfile="${dist.war}">
-            <fileset dir="${build.web.dir}"/>
+            <fileset dir="${build.web.dir}" excludes="WEB-INF/classes/.netbeans_*"/>
         </jar>
     </target>
     <target depends="init,compile,compile-jsps,-pre-dist" if="do.war.package.with.custom.manifest" name="-do-dist-with-manifest">
         <dirname file="${dist.war}" property="dist.jar.dir"/>
         <mkdir dir="${dist.jar.dir}"/>
         <jar compress="${jar.compress}" jarfile="${dist.war}" manifest="${build.meta.inf.dir}/MANIFEST.MF">
-            <fileset dir="${build.web.dir}"/>
+            <fileset dir="${build.web.dir}" excludes="WEB-INF/classes/.netbeans_*"/>
         </jar>
     </target>
     <target depends="init,compile,compile-jsps,-pre-dist" if="do.tmp.war.package.without.custom.manifest" name="-do-tmp-dist-without-manifest">
         <dirname file="${dist.war}" property="dist.jar.dir"/>
         <mkdir dir="${dist.jar.dir}"/>
         <jar compress="${jar.compress}" jarfile="${dist.war}">
-            <fileset dir="${build.web.dir}"/>
+            <fileset dir="${build.web.dir}" excludes="WEB-INF/classes/.netbeans_*"/>
         </jar>
     </target>
     <target depends="init,compile,compile-jsps,-pre-dist" if="do.tmp.war.package.with.custom.manifest" name="-do-tmp-dist-with-manifest">
         <dirname file="${dist.war}" property="dist.jar.dir"/>
         <mkdir dir="${dist.jar.dir}"/>
         <jar compress="${jar.compress}" jarfile="${dist.war}" manifest="${build.meta.inf.dir}/MANIFEST.MF">
-            <fileset dir="${build.web.dir}"/>
+            <fileset dir="${build.web.dir}" excludes="WEB-INF/classes/.netbeans_*"/>
         </jar>
     </target>
     <target depends="init,compile,compile-jsps,-pre-dist,-do-dist-with-manifest,-do-dist-without-manifest" name="do-dist"/>
     <target depends="init" if="dist.ear.dir" name="library-inclusion-in-manifest">
-        <copyfiles files="${file.reference.iControl.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.activation.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.axis-ant.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.axis.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
@@ -681,6 +680,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.commons-discovery.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.commons-logging-1.0.4.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.commons-logging.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.iControl.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.jaxrpc.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.log4j-1.2.8.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.log4j.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
@@ -688,26 +688,10 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.saaj.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.wsdl4j-1.5.1.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.wsdl4j.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.activation.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.axis-ant.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.axis.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.commons-discovery-0.2.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.commons-discovery.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.commons-logging-1.0.4.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.commons-logging.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.iControl.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.jaxrpc.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.log4j-1.2.8.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.log4j.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.mail.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.saaj.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.wsdl4j-1.5.1.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.wsdl4j.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target depends="init" name="library-inclusion-in-archive" unless="dist.ear.dir">
-        <copyfiles files="${file.reference.iControl.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.activation.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.axis-ant.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.axis.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
@@ -715,6 +699,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.commons-discovery.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.commons-logging-1.0.4.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.commons-logging.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.iControl.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.jaxrpc.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.log4j-1.2.8.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.log4j.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
@@ -722,21 +707,6 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.saaj.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.wsdl4j-1.5.1.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.wsdl4j.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.activation.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.axis-ant.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.axis.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.commons-discovery-0.2.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.commons-discovery.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.commons-logging-1.0.4.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.commons-logging.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.iControl.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.jaxrpc.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.log4j-1.2.8.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.log4j.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.mail.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.saaj.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.wsdl4j-1.5.1.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.wsdl4j.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
     </target>
     <target depends="init" if="dist.ear.dir" name="-clean-webinf-lib">
         <delete dir="${build.web.dir}/WEB-INF/lib"/>
@@ -745,7 +715,7 @@ exists or setup the property manually. For example like this:
         <dirname file="${dist.ear.war}" property="dist.jar.dir"/>
         <mkdir dir="${dist.jar.dir}"/>
         <jar compress="${jar.compress}" jarfile="${dist.ear.war}" manifest="${build.web.dir}/META-INF/MANIFEST.MF">
-            <fileset dir="${build.web.dir}"/>
+            <fileset dir="${build.web.dir}" excludes="WEB-INF/classes/.netbeans_*"/>
         </jar>
     </target>
     <target name="-post-dist">

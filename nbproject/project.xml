@@ -7,10 +7,6 @@
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <web-module-libraries>
                 <library dirs="200">
-                    <file>${file.reference.iControl.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
                     <file>${file.reference.activation.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
@@ -36,6 +32,10 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.commons-logging.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.iControl.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
@@ -66,73 +66,13 @@
                     <file>${file.reference.wsdl4j.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
-                <library dirs="200">
-                    <file>${file.reference.activation.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.axis-ant.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.axis.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.commons-discovery-0.2.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.commons-discovery.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.commons-logging-1.0.4.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.commons-logging.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.iControl.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.jaxrpc.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.log4j-1.2.8.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.log4j.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.mail.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.saaj.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.wsdl4j-1.5.1.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.wsdl4j.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>
-                <root id="src.dir"/>
+                <root id="src.dir" name="Source Packages"/>
             </source-roots>
             <test-roots>
-                <root id="test.src.dir"/>
+                <root id="test.src.dir" name="Test Packages"/>
             </test-roots>
         </data>
     </configuration>
