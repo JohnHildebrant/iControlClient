@@ -1,0 +1,19 @@
+module icontrol {
+
+  struct member {
+    string name;
+	unsigned short connections;
+	string availability;
+	string enabled;
+	string description;
+  };
+  
+  interface pool {
+    readonly attribute string name;
+	typedef sequence<member> members;
+	void getMembers (in string poolName,
+	  out member members);
+	void disablePoolMember(in string poolName, in string memberName);
+	void enablePoolMember(in string poolName, in string memberName);
+  };
+};

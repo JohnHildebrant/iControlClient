@@ -21,17 +21,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
   @NamedQuery(name = "Pool.findAll", query = "SELECT p FROM Pool p"),
-  @NamedQuery(name = "Pool.findByThreshold", query = "SELECT p FROM Pool p WHERE p.threshold = :threshold"),
-  @NamedQuery(name = "Pool.findByConnections", query = "SELECT p FROM Pool p WHERE p.connections = :connections"),
   @NamedQuery(name = "Pool.findByName", query = "SELECT p FROM Pool p WHERE p.name = :name"),
   @NamedQuery(name = "Pool.findByDescription", query = "SELECT p FROM Pool p WHERE p.description = :description"),
   @NamedQuery(name = "Pool.findById", query = "SELECT p FROM Pool p WHERE p.id = :id")})
 public class Pool implements Serializable {
   private static final long serialVersionUID = 1L;
-  @Column(name = "threshold")
-  private Short threshold;
-  @Column(name = "connections")
-  private Short connections;
   @Size(max = 2147483647)
   @Column(name = "name")
   private String name;
@@ -54,22 +48,6 @@ public class Pool implements Serializable {
 
   public Pool(Integer id) {
     this.id = id;
-  }
-
-  public Short getThreshold() {
-    return threshold;
-  }
-
-  public void setThreshold(Short threshold) {
-    this.threshold = threshold;
-  }
-
-  public Short getConnections() {
-    return connections;
-  }
-
-  public void setConnections(Short connections) {
-    this.connections = connections;
   }
 
   public String getName() {
