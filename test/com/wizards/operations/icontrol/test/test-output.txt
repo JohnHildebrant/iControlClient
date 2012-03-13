@@ -1,0 +1,25 @@
+Pool Member for pool 'AccountsPool2'
+  10.9.16.107:80
+  10.9.16.108:80
+  10.9.16.109:80
+  10.9.16.119:80
+Pool Member for pool 'POOL_opis-prime.onlinegaming.wizards.com_443'
+  10.9.18.194:80
+  10.9.18.195:80
+Pool Member for pool 'WWWPWPPOOL01'
+  10.9.19.16:80
+  10.9.19.17:80
+  10.9.19.18:80
+  10.9.19.19:80
+Pool Member for pool 'POOL_pwp.wizards.com_akamai_80'
+  10.9.19.16:80
+  10.9.19.17:80
+  10.9.19.18:80
+  10.9.19.19:80
+Pool Member for pool 'WWWDNDPOOL01'
+  10.9.16.19:80
+  10.9.16.47:80
+  10.9.16.51:80
+  10.9.16.53:80
+  10.9.16.55:80
+BUILD SUCCESSFUL (total time: 2 seconds)

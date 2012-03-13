@@ -264,7 +264,16 @@ public class PoolMemberControl {
       //String s = "OPISENDINTAPOOL01_45063 10.1.33.96:45063 enable";
       //String s = "POOL_neverwinterqa.wizards.com_80 10.1.16.155:80 enable";
       //String s = "WWWDNDPOOL01 10.9.16.19:80 enable";
-      String s = "WWWDNDPOOL01 10.9.16.19:80";
+      // String s = "WWWDNDPOOL01 10.9.16.19:80";
+      String s = "AccountsPool2";
+      prog.Run(stringToArgs(s));
+      s = "POOL_opis-prime.onlinegaming.wizards.com_443";
+      prog.Run(stringToArgs(s));
+      s = "WWWPWPPOOL01";
+      prog.Run(stringToArgs(s));
+      s = "POOL_pwp.wizards.com_akamai_80";
+      prog.Run(stringToArgs(s));
+      s = "WWWDNDPOOL01";
       prog.Run(stringToArgs(s));
       //prog.Run(args);
     }
