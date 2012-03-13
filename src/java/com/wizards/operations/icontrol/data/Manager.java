@@ -21,9 +21,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
   @NamedQuery(name = "Manager.findAll", query = "SELECT m FROM Manager m"),
-  @NamedQuery(name = "Manager.findById", query = "SELECT m FROM Manager m WHERE m.id = :id"),
-  @NamedQuery(name = "Manager.findBySamaccountname", query = "SELECT m FROM Manager m WHERE m.samaccountname = :samaccountname"),
-  @NamedQuery(name = "Manager.findByFullname", query = "SELECT m FROM Manager m WHERE m.fullname = :fullname")})
+  @NamedQuery(name = "Manager.findById", query = "SELECT m FROM Manager m "
+        + "WHERE m.id = :id"),
+  @NamedQuery(name = "Manager.findBySamaccountname", query = "SELECT m FROM "
+        + "Manager m WHERE m.samaccountname = :samaccountname"),
+  @NamedQuery(name = "Manager.findByFullname", query = "SELECT m FROM "
+        + "Manager m WHERE m.fullname = :fullname")})
 public class Manager implements Serializable {
   private static final long serialVersionUID = 1L;
   @Id
@@ -38,7 +41,8 @@ public class Manager implements Serializable {
   @Column(name = "fullname")
   private String fullname;
   @JoinTable(name = "pool_manager", joinColumns = {
-    @JoinColumn(name = "user_id", referencedColumnName = "id")}, inverseJoinColumns = {
+    @JoinColumn(name = "user_id", referencedColumnName = "id")}, 
+          inverseJoinColumns = {
     @JoinColumn(name = "pool_id", referencedColumnName = "id")})
   @ManyToMany
   private Collection<Pool> poolCollection;
@@ -92,12 +96,14 @@ public class Manager implements Serializable {
 
   @Override
   public boolean equals(Object object) {
-    // TODO: Warning - this method won't work in the case the id fields are not set
+    // TODO: Warning - this method won't work in the case the 
+    // id fields are not set
     if (!(object instanceof Manager)) {
       return false;
     }
     Manager other = (Manager) object;
-    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+    if ((this.id == null && other.id != null) || (this.id != null 
+            && !this.id.equals(other.id))) {
       return false;
     }
     return true;

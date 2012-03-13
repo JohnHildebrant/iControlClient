@@ -21,9 +21,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
   @NamedQuery(name = "Pool.findAll", query = "SELECT p FROM Pool p"),
-  @NamedQuery(name = "Pool.findByName", query = "SELECT p FROM Pool p WHERE p.name = :name"),
-  @NamedQuery(name = "Pool.findByDescription", query = "SELECT p FROM Pool p WHERE p.description = :description"),
-  @NamedQuery(name = "Pool.findById", query = "SELECT p FROM Pool p WHERE p.id = :id")})
+  @NamedQuery(name = "Pool.findByName", query = "SELECT p FROM Pool p "
+        + "WHERE p.name = :name"),
+  @NamedQuery(name = "Pool.findByDescription", query = "SELECT p FROM Pool p "
+        + "WHERE p.description = :description"),
+  @NamedQuery(name = "Pool.findById", query = "SELECT p FROM Pool p "
+        + "WHERE p.id = :id")})
 public class Pool implements Serializable {
   private static final long serialVersionUID = 1L;
   @Size(max = 2147483647)
@@ -89,12 +92,14 @@ public class Pool implements Serializable {
 
   @Override
   public boolean equals(Object object) {
-    // TODO: Warning - this method won't work in the case the id fields are not set
+    // TODO: Warning - this method won't work in the case the 
+    // id fields are not set
     if (!(object instanceof Pool)) {
       return false;
     }
     Pool other = (Pool) object;
-    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+    if ((this.id == null && other.id != null) || (this.id != null 
+            && !this.id.equals(other.id))) {
       return false;
     }
     return true;
