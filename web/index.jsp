@@ -38,8 +38,9 @@
         <div id="indexLeftColumn">
           <div id="applet">
             <center>
-              <applet code=com/wizards/operations/icontrol/applet/PoolStats.class
-                      width=350 height=400>
+              <applet 
+                code=com/wizards/operations/icontrol/applet/PoolStats.class
+                width=350 height=400>
               </applet>
             </center>
           </div>

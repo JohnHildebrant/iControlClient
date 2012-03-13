@@ -90,8 +90,8 @@ public class PoolImpl
     
     StructuredProxyPushConsumer pushConsumer = null;
     try {
-      pushConsumer = StructuredProxyPushConsumerHelper.narrow(
-          supplierAdmin.obtain_notification_push_consumer(ctype, proxyIdHolder));
+      pushConsumer = StructuredProxyPushConsumerHelper.narrow(supplierAdmin.
+          obtain_notification_push_consumer(ctype, proxyIdHolder));
       pool.pushConsumers.add(pushConsumer);
     } catch (AdminLimitExceeded ex) {
         System.err.println("Could not get consumer proxy, maximum number of "
@@ -101,8 +101,8 @@ public class PoolImpl
       
     // connect the push supplier
     try {
-      pushConsumer.connect_structured_push_supplier(StructuredPushSupplierHelper
-              .narrow( poa.servant_to_reference( thisTie )));
+      pushConsumer.connect_structured_push_supplier(
+      StructuredPushSupplierHelper.narrow(poa.servant_to_reference(thisTie)));
     } catch( Exception e ) {
         e.printStackTrace();
     } 
@@ -116,7 +116,8 @@ public class PoolImpl
 
         // set the event type and name
         EventType type = new EventType("Pool", "Watching");
-        FixedEventHeader fixed = new FixedEventHeader(type, "" + getEventId() );
+        FixedEventHeader fixed = 
+          new FixedEventHeader(type, "" + getEventId());
 
         // complete header date
         Property variable[] = new Property[0];
@@ -132,7 +133,8 @@ public class PoolImpl
         org.omg.CORBA.TypeCode tcArray = orb.
                 create_array_tc(memberCount, tcInterface);
         membersAny.insert_Value(pool.proxyMembers.toArray(), tcArray);
-        watchingEvent.filterable_data[0] = new Property("members", membersAny);
+        watchingEvent.filterable_data[0] = 
+          new Property("members", membersAny);
 
         Any urgentAny = orb.create_any();
         urgentAny.insert_boolean( true );

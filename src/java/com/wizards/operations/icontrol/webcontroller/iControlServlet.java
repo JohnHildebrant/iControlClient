@@ -46,7 +46,6 @@ public class iControlServlet extends HttpServlet {
       poolMap = new HashMap<String, List<Pool>>();
     }
 
-  // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
   /**
    * Handles the HTTP
    * <code>GET</code> method.
@@ -57,7 +56,8 @@ public class iControlServlet extends HttpServlet {
    * @throws IOException if an I/O error occurs
    */
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doGet(HttpServletRequest request, 
+    HttpServletResponse response)
           throws ServletException, IOException {
     HttpSession session = request.getSession();
     String id = session.getId();
@@ -78,7 +78,8 @@ public class iControlServlet extends HttpServlet {
    * @throws IOException if an I/O error occurs
    */
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, 
+    HttpServletResponse response)
           throws ServletException, IOException {
   }
 
@@ -90,5 +91,5 @@ public class iControlServlet extends HttpServlet {
   @Override
   public String getServletInfo() {
     return "Short description";
-  }// </editor-fold>
+  }
 }

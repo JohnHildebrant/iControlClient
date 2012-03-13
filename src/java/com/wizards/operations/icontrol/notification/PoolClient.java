@@ -90,7 +90,8 @@ public class PoolClient extends StructuredPushConsumerPOA {
               ClientType.STRUCTURED_EVENT, new org.omg.CORBA.IntHolder() ) );
       
       // connect ourselves to the event channel
-      proxyPushSupplier.connect_structured_push_consumer(structuredPushConsumer);
+      proxyPushSupplier.
+        connect_structured_push_consumer(structuredPushConsumer);
       
       // get the default filter factory
       filterFactory = channel.default_filter_factory();

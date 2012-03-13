@@ -78,10 +78,11 @@ public class PoolServer {
 
         channels.put(poolName, channel);
 
-        System.out.println("Channel " + idHolder.value + " created and bound to"
-              + " name " + poolName + "_event.channel.");
+        System.out.println("Channel " + idHolder.value + 
+          " created and bound to" + " name " + poolName + "_event.channel.");
 
-        // create a Pool object, implicitly activate it and advertise its presence
+        // create a Pool object, implicitly activate it and advertise 
+        // its presence
         PoolImpl pool = new PoolImpl( channel, orb, poa, this );
         pools.put(poolName, pool);
         pool.connect();

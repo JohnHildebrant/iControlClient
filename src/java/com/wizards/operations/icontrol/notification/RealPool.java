@@ -176,12 +176,12 @@ public class RealPool {
           CommonIPPortDefinition [][] memberDefAofA = { memberDefA };
         
           LocalLBPoolMemberMemberStatistics [] memberStatsA = interfaces.
-                getLocalLBPoolMember().get_statistics(poolList, memberDefAofA);
+            getLocalLBPoolMember().get_statistics(poolList, memberDefAofA);
       
           LocalLBPoolMemberMemberStatistics memberStats = memberStatsA[0];
       
           LocalLBPoolMemberMemberStatisticEntry [] statsEntryA = 
-                memberStats.getStatistics();
+            memberStats.getStatistics();
           LocalLBPoolMemberMemberStatisticEntry  statsEntry = statsEntryA[0];
       
           CommonStatistic [] statsA = statsEntry.getStatistics();
@@ -223,7 +223,8 @@ public class RealPool {
     LocalLBPoolMemberMemberMonitorState [][] monStateAofA = { monStateA };
     
     System.out.println("Setting Monitor State to Enabled");
-    interfaces.getLocalLBPoolMember().set_monitor_state(poolList, monStateAofA);
+    interfaces.getLocalLBPoolMember().
+      set_monitor_state(poolList, monStateAofA);
     
     LocalLBPoolMemberMemberSessionState memberSessionState = 
             new LocalLBPoolMemberMemberSessionState();
@@ -232,8 +233,10 @@ public class RealPool {
     memberSessionState.getMember().setPort(Long.parseLong(memberPort));
     memberSessionState.setSession_state(CommonEnabledState.STATE_ENABLED);
     
-    LocalLBPoolMemberMemberSessionState [] sessionStateA = { memberSessionState };
-    LocalLBPoolMemberMemberSessionState [][] sessionStateAofA = { sessionStateA };
+    LocalLBPoolMemberMemberSessionState [] sessionStateA = 
+      { memberSessionState };
+    LocalLBPoolMemberMemberSessionState [][] sessionStateAofA = 
+      { sessionStateA };
     
     System.out.println("Setting Session State to Enabled");
     interfaces.getLocalLBPoolMember().
@@ -258,8 +261,10 @@ public class RealPool {
     memberSessionState.getMember().setPort(Long.parseLong(memberPort));
     memberSessionState.setSession_state(CommonEnabledState.STATE_DISABLED);
     
-    LocalLBPoolMemberMemberSessionState [] sessionStateA = { memberSessionState };
-    LocalLBPoolMemberMemberSessionState [][] sessionStateAofA = { sessionStateA };
+    LocalLBPoolMemberMemberSessionState [] sessionStateA = 
+      { memberSessionState };
+    LocalLBPoolMemberMemberSessionState [][] sessionStateAofA = 
+      { sessionStateA };
     
     interfaces.getLocalLBPoolMember().
             set_session_enabled_state(poolList, sessionStateAofA);
@@ -278,7 +283,8 @@ public class RealPool {
     while ( cur_connections > 0 )
     {
       LocalLBPoolMemberMemberStatistics [] memberStatsA = 
-        interfaces.getLocalLBPoolMember().get_statistics(poolList, memberDefAofA);
+        interfaces.getLocalLBPoolMember().
+          get_statistics(poolList, memberDefAofA);
       
       LocalLBPoolMemberMemberStatistics memberStats = memberStatsA[0];
       
@@ -293,7 +299,8 @@ public class RealPool {
         CommonStatisticType type = statsA[i].getType();
         CommonULong64 value64 = statsA[i].getValue();
 
-        if ( type == CommonStatisticType.STATISTIC_SERVER_SIDE_CURRENT_CONNECTIONS )
+        if ( type == CommonStatisticType.
+          STATISTIC_SERVER_SIDE_CURRENT_CONNECTIONS )
         {
           cur_connections = value64.getLow();
           System.out.println("Current Connections: " + cur_connections);
@@ -315,7 +322,8 @@ public class RealPool {
     LocalLBPoolMemberMemberMonitorState [] monStateA = { memberMonitorState };
     LocalLBPoolMemberMemberMonitorState [][] monStateAofA = { monStateA };
     
-    interfaces.getLocalLBPoolMember().set_monitor_state(poolList, monStateAofA);
+    interfaces.getLocalLBPoolMember().
+      set_monitor_state(poolList, monStateAofA);
     
     //getPoolMemberStatus(pool, member);
   }
