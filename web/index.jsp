@@ -12,6 +12,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <link rel="stylesheet" type="text/css" href="css/icontrol.css">
       <title>Big-IP Pools</title>
+      <jsp:include page="iControlServlet"/>
     </head>
     <body>
       <div id="main">
@@ -35,43 +36,25 @@
         </div>
 
         <div id="indexLeftColumn">
-          <div id="welcomeText">
-            <p>[ welcome text ]</p>
+          <div id="applet">
+            <center>
+              <applet code=com/wizards/operations/icontrol/applet/PoolStats.class
+                      width=350 height=400>
+              </applet>
+            </center>
           </div>
-<!--          <table>
+        </div>
+
+        <div id="indexRightColumn">
+          <table>
             <c:forEach var="pool" items="${pools}">
               <tr>
                 <td>${pool.name}</td>
                 <td>${pool.description}</td>
               </tr>
             </c:forEach>
-          </table>-->
+          </table>
         </div>
-
-        <div id="indexRightColumn">
-          <div class="categoryBox">
-            <a href="#">
-              <span class="categoryLabelText">AccountsPool2</span>
-            </a>
-          </div>
-          <div class="categoryBox">
-            <a href="#">
-              <span class="categoryLabelText">
-                POOL_opis-prime.onlinegaming.wizards.com_443</span>
-            </a>
-          </div>
-          <div class="categoryBox">
-            <a href="#">
-              <span class="categoryLabelText">WWWPWPPOOL01</span>
-            </a>
-          </div>
-          <div class="categoryBox">
-            <a href="#">
-              <span class="categoryLabelText">POOL_pwp.wizards.com_akamai_80</span>
-            </a>
-          </div>
-        </div>
-        
       <div id="footer">
         <hr>
         <p id="footerText">[ footer text ]</p>

@@ -264,7 +264,7 @@ public class PoolMemberControl {
       //String s = "OPISENDINTAPOOL01_45063 10.1.33.96:45063 enable";
       //String s = "POOL_neverwinterqa.wizards.com_80 10.1.16.155:80 enable";
       //String s = "WWWDNDPOOL01 10.9.16.19:80 enable";
-      String s = "AccountsPool2";
+      String s = "WWWDNDPOOL01 10.9.16.19:80";
       prog.Run(stringToArgs(s));
       //prog.Run(args);
     }

@@ -37,11 +37,8 @@ public class Pool implements Serializable {
   @NotNull
   @Column(name = "id")
   private Integer id;
-  @JoinTable(name = "pool_user", joinColumns = {
-    @JoinColumn(name = "pool_id", referencedColumnName = "id")}, inverseJoinColumns = {
-    @JoinColumn(name = "user_id", referencedColumnName = "id")})
-  @ManyToMany
-  private Collection<User> userCollection;
+  @ManyToMany(mappedBy = "poolCollection")
+  private Collection<Manager> managerCollection;
 
   public Pool() {
   }
@@ -75,12 +72,12 @@ public class Pool implements Serializable {
   }
 
   @XmlTransient
-  public Collection<User> getUserCollection() {
-    return userCollection;
+  public Collection<Manager> getManagerCollection() {
+    return managerCollection;
   }
 
-  public void setUserCollection(Collection<User> userCollection) {
-    this.userCollection = userCollection;
+  public void setManagerCollection(Collection<Manager> managerCollection) {
+    this.managerCollection = managerCollection;
   }
 
   @Override

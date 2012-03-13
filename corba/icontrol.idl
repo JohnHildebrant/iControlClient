@@ -1,19 +1,24 @@
+module com {
+module wizards {
+module operations {
 module icontrol {
 
-  struct member {
+  struct Member {
     string name;
-	unsigned short connections;
+	long long connections;
 	string availability;
 	string enabled;
 	string description;
   };
   
-  interface pool {
-    readonly attribute string name;
-	typedef sequence<member> members;
-	void getMembers (in string poolName,
-	  out member members);
-	void disablePoolMember(in string poolName, in string memberName);
-	void enablePoolMember(in string poolName, in string memberName);
+  interface Applet {
+	typedef sequence<Member> members;
   };
-};
+  
+  interface Pool {
+    typedef sequence<Member> members;
+	void startPush(in string poolName);
+	void disablePoolMember(in string memberName);
+	void enablePoolMember(in string memberName);
+  };
+}; }; }; };
