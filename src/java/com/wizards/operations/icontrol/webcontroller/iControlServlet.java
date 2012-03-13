@@ -7,6 +7,7 @@ package com.wizards.operations.icontrol.webcontroller;
 import com.wizards.operations.icontrol.data.Pool;
 import com.wizards.operations.icontrol.session.PoolFacade;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,17 +24,6 @@ import javax.servlet.http.HttpSession;
  */
 public class iControlServlet extends HttpServlet {
 
-  /**
-   * Processes requests for both HTTP
-   * <code>GET</code> and
-   * <code>POST</code> methods.
-   *
-   * @param request servlet request
-   * @param response servlet response
-   * @throws ServletException if a servlet-specific error occurs
-   * @throws IOException if an I/O error occurs
-   */
-  
   private Map<String, List<Pool>> poolMap;
   
   @EJB
@@ -45,6 +35,36 @@ public class iControlServlet extends HttpServlet {
       getServletContext().setAttribute("pools", poolFacade.findAll());
       poolMap = new HashMap<String, List<Pool>>();
     }
+  /**
+   * Processes requests for both HTTP
+   * <code>GET</code> and
+   * <code>POST</code> methods.
+   *
+   * @param request servlet request
+   * @param response servlet response
+   * @throws ServletException if a servlet-specific error occurs
+   * @throws IOException if an I/O error occurs
+   */
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+    try {
+      /*
+       * TODO output your page here. You may use following sample code.
+       */
+      out.println("<html>");
+      out.println("<head>");
+      out.println("<title>Servlet iControlServlet</title>");      
+      out.println("</head>");
+      out.println("<body>");
+      out.println("<h1>Servlet iControlServlet at " + request.getContextPath() + "</h1>");
+      out.println("</body>");
+      out.println("</html>");
+    } finally {      
+      out.close();
+    }
+  }
 
   /**
    * Handles the HTTP
@@ -65,7 +85,7 @@ public class iControlServlet extends HttpServlet {
     // insure that the pools are authorized in this session
     poolMap.put(id, poolFacade.findAll());
     
-    //processRequest(request, response);
+    processRequest(request, response);
   }
 
   /**
@@ -78,9 +98,9 @@ public class iControlServlet extends HttpServlet {
    * @throws IOException if an I/O error occurs
    */
   @Override
-  protected void doPost(HttpServletRequest request, 
-    HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
+    processRequest(request, response);
   }
 
   /**
@@ -91,5 +111,5 @@ public class iControlServlet extends HttpServlet {
   @Override
   public String getServletInfo() {
     return "Short description";
-  }
+  }// </editor-fold>
 }

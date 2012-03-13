@@ -12,8 +12,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <link rel="stylesheet" type="text/css" href="css/icontrol.css">
       <title>Big-IP Pools</title>
-      <jsp:include page="iControlServlet"/>
-    </head>
+  </head>
     <body>
       <div id="main">
         <div id="header">
@@ -37,12 +36,12 @@
 
         <div id="indexLeftColumn">
           <div id="applet">
-            <center>
+            <%--<center>
               <applet 
                 code=com/wizards/operations/icontrol/applet/PoolStats.class
                 width=350 height=400>
               </applet>
-            </center>
+            </center>--%>
           </div>
         </div>
 

@@ -61,7 +61,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("      <link rel=\"stylesheet\" type=\"text/css\" href=\"css/icontrol.css\">\n");
       out.write("      <title>Big-IP Pools</title>\n");
-      out.write("    </head>\n");
+      out.write("  </head>\n");
       out.write("    <body>\n");
       out.write("      <div id=\"main\">\n");
       out.write("        <div id=\"header\">\n");
@@ -84,8 +84,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\n");
       out.write("\n");
       out.write("        <div id=\"indexLeftColumn\">\n");
-      out.write("          <div id=\"welcomeText\">\n");
-      out.write("            <p>[ welcome text ]</p>\n");
+      out.write("          <div id=\"applet\">\n");
+      out.write("            ");
+      out.write("\n");
       out.write("          </div>\n");
       out.write("        </div>\n");
       out.write("\n");
