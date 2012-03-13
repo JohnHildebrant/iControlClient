@@ -57,8 +57,9 @@ public class PoolServer {
    * Register an event channel for a Pool's events
    * To be shared among consumers of a Pool's EventChannel
    */
-  public void registerPool(final String poolName) {
+  public void registerPool(final PoolImpl pool) {
     try {
+      String poolName = pool.getName();
       if (!(pools.containsKey(poolName) && channels.containsKey(poolName))) {
         EventChannelFactory factory = EventChannelFactoryHelper.
                   narrow(nc.resolve(nc.to_name("NotificationService")));
@@ -81,12 +82,15 @@ public class PoolServer {
         System.out.println("Channel " + idHolder.value + 
           " created and bound to" + " name " + poolName + "_event.channel.");
 
-        // create a Pool object, implicitly activate it and advertise 
+        // associate a Pool object, implicitly activate it and advertise 
         // its presence
-        PoolImpl pool = new PoolImpl( channel, orb, poa, this );
+        pool.setChannel(channel);
+        pool.setOrb(orb);
+        pool.setPoa(poa);
+        pool.setPoolServer(this);
         pools.put(poolName, pool);
         pool.connect();
-        System.out.println("Pool created and connected");
+        System.out.println("Pool connected");
 
         org.omg.CORBA.Object poolObj = poa.servant_to_reference(pool);
         System.out.println("Pool exported");

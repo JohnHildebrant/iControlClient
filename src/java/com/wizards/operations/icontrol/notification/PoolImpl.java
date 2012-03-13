@@ -42,19 +42,47 @@ public class PoolImpl
   private ClientType ctype;
   private org.omg.CORBA.IntHolder proxyIdHolder;
   
-  public PoolImpl(EventChannel e, ORB orb, POA poa, PoolServer poolServer) 
+  public PoolImpl() 
           throws Exception {
     // set the ORB and event channel
-    channel = e;
-    this.orb = orb;
-    this.poa = poa;
-    this.poolServer = poolServer;
     eventId = 0;
     realPool = new RealPool();
   }
   
   public int getEventId() {
     return eventId++;
+  }
+  
+  public String getName() {
+    return poolName;
+  }
+
+  /**
+   * @param channel the channel to set
+   */
+  public void setChannel(EventChannel channel) {
+    this.channel = channel;
+  }
+
+  /**
+   * @param orb the orb to set
+   */
+  public void setOrb(ORB orb) {
+    this.orb = orb;
+  }
+
+  /**
+   * @param poa the poa to set
+   */
+  public void setPoa(POA poa) {
+    this.poa = poa;
+  }
+
+  /**
+   * @param poolServer the poolServer to set
+   */
+  public void setPoolServer(PoolServer poolServer) {
+    this.poolServer = poolServer;
   }
   
   class Pool {
@@ -78,12 +106,12 @@ public class PoolImpl
 
   @Override
   public void startPush(final String poolName) {
-    // register Pool with PoolServer
-    poolServer.registerPool(poolName);
     Thread poolThread = null;
     if (this.poolName == null) {
       this.poolName = poolName;
       pool = new Pool(poolName);
+      // register Pool with PoolServer
+      poolServer.registerPool(this);
       // start pool thread
       poolThread = new Thread(new PoolRunnable(poolName));
     }
